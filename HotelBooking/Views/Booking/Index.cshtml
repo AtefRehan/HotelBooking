@@ -1,0 +1,29 @@
+@model IEnumerable<Booking>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Customer Name</th>
+        <th>Branch</th>
+        <th>Check-In Date</th>
+        <th>Check-Out Date</th>
+        <th>Total Rooms</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var booking in Model)
+    {
+    <tr>
+        <td>@booking.Customer.Name</td>
+        <td>@booking.Branch.BranchName</td>
+        <td>@booking.CheckInDate.ToShortDateString()</td>
+        <td>@booking.CheckOutDate.ToShortDateString()</td>
+        <td>@booking.TotalRooms</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@booking.BookingId" class="btn btn-info">Details</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

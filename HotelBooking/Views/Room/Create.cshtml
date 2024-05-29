@@ -1,0 +1,24 @@
+@model Room
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="BookingId" value="@ViewBag.BookingId" />
+    <input type="hidden" name="roomsLeftToCreate" value="@ViewBag.RoomsLeftToCreate" />
+
+
+    <div class="form-group">
+        <label asp-for="RoomType">Room Type</label>
+        <select asp-for="RoomType" class="form-control" asp-items="ViewBag.RoomTypeList"></select>
+        <span asp-validation-for="RoomType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumberOfAdults">Number of Adults</label>
+        <input asp-for="NumberOfAdults" class="form-control" />
+        <span asp-validation-for="NumberOfAdults" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumberOfChildren">Number of Children</label>
+        <input asp-for="NumberOfChildren" class="form-control" />
+        <span asp-validation-for="NumberOfChildren" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Create Room</button>
+</form>
